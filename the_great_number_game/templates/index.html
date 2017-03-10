@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>a</title>
+  </head>
+  <body>
+    <h1> Welcome to the Great Number Game! </h1>
+    <p>
+      I am thinking of a number between 1 and 100. <br />
+      Take a guess!
+    </p>
+    <form action = "/checknum" method = "POST">
+      <input type="number" name="submission" /><br />
+      <input type="submit" value="Check" />
+    </form>
+    <form action="/reset">
+      <input type="submit" value="reset" />
+    </form>
+    {{session.message}}
+  </body>
+</html>
