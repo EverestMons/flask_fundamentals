@@ -5,7 +5,16 @@
     <title>survey</title>
   </head>
   <body>
-    <form action="/result" method="POST">
+    {% with messages = get_flashed_messages()%}
+      {% if messages %}
+        {% for mess in messages %}
+          <p>
+            {{mess}}
+          </p>
+        {% endfor %}
+      {%endif %}
+    {% endwith %}
+    <form action="/process" method="POST">
       <h4>Your Name:</h4><input name="name" type="text" /><br />
       <h4>Dojo Location:</h4>
       <select name="location">
@@ -26,8 +35,9 @@
         <option value="Python">Python</option>
         <option value="Ruby">Ruby</option>
       </select>
-    <h4>Comment (optional): </h4>
-    <textarea name="comment" form="usrform"></textarea><br />
+    <h4>Comment: </h4>
+    <input name="comment" type="text">
+    <br />
     <input type="submit" value="Submit"/>
   </form>
   </body>
